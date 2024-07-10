@@ -14,16 +14,16 @@ timezone: America/Los_Angeles
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Blake Gella's Website # the main title
+title: Blake Gella's Computer Vision and Machine Learning Zone # the main title
 
-tagline: Master of Science in Electrical and Computer Engineering # it will display as the sub-title
+tagline: Master of Science in Electrical and Computer Engineering Graduate from UCLA that's looking for employment! # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Blake Gella's personal website. MS of Electrical and Computer Engineering specializing in Machine Learning and Computer Vision.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://glitchimmunity.github.io"
+url: "https://www.blakegella.com"
 
 github:
   username: GlitchImmunity # change to your github username
@@ -96,7 +96,7 @@ theme_mode: dark # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: avatar.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
