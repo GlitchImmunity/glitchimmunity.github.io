@@ -68,11 +68,32 @@ This equation follows the same idea as the continuous version.
 
 One of the key components of NeRF is the use of positional encoding to represent the 5D input to the neural network. The original NeRF paper uses a found that operating on only the x, y, z, $\theta$, and $\phi$ coordinates of the ray was not enough to capture the complexity of the scene. To address this, the paper uses a positional encoding to map the 5D input to a higher-dimensional space, allowing the network to learn more complex features of the scene. Specifically, the paper uses sines and cosines of varying frequencies to encode the input coordinates, which allows the network to learn high-frequency details in the scene. As discussed in the paper, this positional encoding is similar to the ones found in transformer tokens.
 
+### Hierarchical Volume Sampling
+
+One optimization that the original NeRF paper makes is the use of two networks that the paper calls "coarse" and "fine". The coarse network is used to estimate the volume density and view-dependent emitted radiance at a set of 3D points in the scene, while the fine network samples more from the dense portions of the coarse estimate. They do this by creating a probability density function from the normalized densities along the ray, which is then used to sample a new set of points. Both the old and new set of points are used as inputs for the fine network, allowing computationally effecient dense estimates in "important" areas of the scene while keeping some sampling in "unimportant" areas.
+
+## Applications of NeRF
+
+In this section, we'll discuss the various applications of NeRF.
+
+### 3D Models
+
+One application mentioned in the official NeRF project page is the creation of 3D meshes from the NeRF model. This is done by using a marching cubes algorithm to extract the surface of the scene from the volume density function learned by the NeRF model. This allows us to create 3D models of scenes that can be used in applications such as Blender or Unity. In my optinion, one of the best applications is NVIDIA's Instant Neural Graphics Primitives, which provides an optimized training, inferences, and mesh creation pipeline for neural graphics models, including NeRF. 
+
+In terms of where I see NeRF being applied in business, I could see it being used in online stores where customers can view products in 3D before purchasing them. This would allow customers to see the product from all angles and get a better sense of what it looks like in real life. This could be especially useful for products that are difficult to visualize in 2D, such as furniture or clothing. In particular for complex furniture, one would be able to view specific parts of the furniture in 3D to get a better sense of how it looks, which would be better than an assortment of 2D images that may be taken at inoptimal angles.
+
+### Robotics
+
+While I'm not the most knowledgeable in robotics, I found a few papers that discuss the use of NeRF in robotics. One paper, "3D Neural Scene Representations for Visuomotor Control" by Y. Li et al., uses a 3D scene representation from NeRF to control visuomotor tasks. From their paper, much of their applications involve fluids and the way they interact with rigid objects. This is an interesting direction for NeRF, and I hope to see future work in this direction.
+
+
 ## Limitations
 
 One of the main limitations of NeRF is its computational complexity. The original NeRF paper requires a large amount of memory and computation to train and render scenes. This is because the method requires a large number of input views to train the model, and the model itself is quite large (if you don't use the miny version like we did in the demo). This makes it difficult to scale NeRF to larger scenes or more complex scenes. However, there have been several follow-up works that aim to address these limitations, such as Mip-NeRF.
 
 Another limitation is training. NeRF requires a large number of input views to train the model effectively. This can be time-consuming and computationally expensive, especially for complex scenes. Additionally, the NeRF model, being a filly connected network, is shown to be slow at learning high frequency details in the scene. The follow-up work "Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains" addresses this issue by using a Fourier feature mapping to allow the network to learn high frequency details more efficiently.
+
+One last limitation that I'd like to discuss is low-quality outputs when dealing with detailed scenes in the real world. This is because NeRF intrinsically struggles with scenes that have tiny details, complex lighting, or complex geometry. This is because the model is trained on a pseudo resolution based on the size of the "bins", which may not capture all the details of the scene. This can result in low-quality outputs when rendering novel views of the scene. However, there have been several follow-up works that aim to address these limitations, such as Neuralangelo. This method uses 3D hash grids with multiple resolutions to capture the details of the scene more effectively. I plan on covering these follow-up works in future posts.
 
 ## Demo
 
@@ -82,3 +103,9 @@ Now that the theory is out of the way, let's dive in to the demo below. You'll b
 {: .prompt-warning}
 
 You can find the colab notebook [here.](https://colab.research.google.com/drive/1jdNBYahqNGEA9mXZKEoolOTKShXr1dhK#offline=true&sandboxMode=true)
+
+## Conclusion
+
+I hope that this post did a good job explaining NeRF and its applications. The affects of NeRF in the computer vision space are very significant, as very important work in neural signed distance functions and 3D Gaussian Splatting have taken inspiration from NeRF. I hope to cover these topics in future posts, as well as other recent computer vision algorithms. 
+
+If you have any questions or comments, feel free to reach out to me on LinkedIn or via email. I hope you enjoyed this post and I hope to see you in the next one!
