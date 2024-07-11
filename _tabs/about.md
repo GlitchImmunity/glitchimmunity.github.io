@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-info-circle
-order: 3
+order: 4
 ---
 
 Good Morning/Afternoon/Evening to you! My name is Blake Gella and I am a Master of Science in Electrical and Computer Engineering Graduate from UCLA. I am currently searching for new grad positions as a machine learning engineer in the Greater San Francisco Bay Area and the Greater Sacremento Area. While I am searching for a job, I will be posting about my projects, tutorials, and other interesting topics in the field of machine learning and computer vision on my personal website. I hope you enjoy my content and feel free to reach out to me on LinkedIn or via email if you have any questions or just want to chat!
