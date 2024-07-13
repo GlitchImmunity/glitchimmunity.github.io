@@ -5,7 +5,7 @@ date: 2024-07-07 20:00:00 -0800
 categories: [Tutorials, Computer Vision]
 tags: [view synthesis, 3d]     # TAG names should always be lowercase
 toc: true
-image: https://drive.google.com/thumbnail?id=1-0gFgIdimZyNOEAyzN9r97UZvFaJ8BRq&sz=w1000
+image: /assets/001/preview.png
 math: true
 ---
 
