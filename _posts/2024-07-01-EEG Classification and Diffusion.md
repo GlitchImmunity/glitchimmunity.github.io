@@ -7,15 +7,15 @@ tags: []     # TAG names should always be lowercase
 toc: true
 ---
 
-## Project Overview
+## Overview
 
 In this project, myself and three other UCLA students explored the efficacy of using diffusion to generate EEG signals to train classification. We would like to thank the Graz University of Technology, Austria for allowing us to use their EEG dataset for our project. The dataset can be found [here](https://www.bbci.de/competition/iv/).
 
-## Project Goals
+## Goals
 
 The main goal of the project was maximizing the classification accuracy of different movements of a person based on EEG signals. We also wanted to explore the efficacy of using diffusion to generate EEG signals for classification. We also wanted to explore the efficacy of using different variations of CNNs for classification, specificially if a simple CNN would be better than a CNN with an LSTM or Multi-Head Attention layer.
 
-## Project Results
+## Results
 
 We found that using a simple CNN was the best model for classifying EEG signals, achieving a classification test accuracy of 70.4%. We also found that using diffusion to generate EEG signals was not as effective as we hoped for, which we attributed to the small amount of data and the amount of noise in the data. We also found that using a simple CNN was the best model for classifying EEG signals. 
 
@@ -50,6 +50,6 @@ _The real EEG signal is the red line and the generated EEG signal is the blue li
 
 Visually, these signals are varying in quality. The random noise signal is very noisy and does not resemble the real EEG signal. The average signal is less noisy and has some structure, but still has some noise in it. We also validated this finding numerically by training a simple CNN on the generated EEG signals and found that the model was not able to classify the signals well. The best model that was trained on the generated signals achieved a test accuracy of 66.9 with 60% synthetic data and 40% real data.
 
-## Project Code
+## Code
 
 The code for this project can be found on my [github](https://github.com/GlitchImmunity/EEG-Diffusion). The code will be refactored and cleaned up in the future.
